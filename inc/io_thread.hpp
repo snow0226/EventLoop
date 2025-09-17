@@ -39,12 +39,14 @@ private:
     NoneCopy& operator=(const NoneCopy&) = delete;
 };
 
-class session;
+class Session;
 class IOThread : public NoneCopy{
 public:
     IOThread(int index);
     ~IOThread();
     int set_nonblocking(int fd);
+    // catche_new_con：适合批量分发 fd，不触发立即唤醒。
+    // enqueue_new_con：适合单个 fd 立即入队并唤醒线程。
     void enqueue_new_conn(int fd);              // 任务入队并wakeup IOThread线程去处理队列里面的任务
     void catche_new_conn(int fd);               //线程内部任务入队的接口
     void start();
