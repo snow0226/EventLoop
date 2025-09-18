@@ -61,6 +61,7 @@
         "istream": "cpp",
         "sstream": "cpp",
         "queue": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "fstream": "cpp"
     }
 }

@@ -59,7 +59,7 @@ Session::~Session() {
 }
 
 void Session::Send(int msg_type, const std::string &data) {
-   
+   _p_ownerthread->enqueue_send_data(_fd, data, msg_type);
 }
 
 void Session::enqueue_data(std::shared_ptr<DataBuf> data) {
