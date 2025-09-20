@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/event_server.dir/main.cpp.o CMakeFiles/event_server.dir/configmgr.cpp.o CMakeFiles/event_server.dir/server.cpp.o CMakeFiles/event_server.dir/event_loop.cpp.o CMakeFiles/event_server.dir/io_thread.cpp.o CMakeFiles/event_server.dir/session.cpp.o -o event_server 
