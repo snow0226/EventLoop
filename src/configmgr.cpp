@@ -24,7 +24,6 @@ bool ConfigMgr::loadFromFile(const std::string &filepath)
     section_.clear();
     // 重置状态
     kv_.clear();
-    return false;
 
     std::string line;
     while (std::getline(in, line)) {
