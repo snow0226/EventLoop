@@ -20,7 +20,7 @@ static void trim(std::string& s) {
 bool ConfigMgr::loadFromFile(const std::string &filepath)
 {
     std::ifstream in(filepath);
-    if (in.is_open())   return false;
+    if (!in.is_open())   return false;
     section_.clear();
     // 重置状态
     kv_.clear();
