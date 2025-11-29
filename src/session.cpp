@@ -47,7 +47,7 @@ DataBuf::~DataBuf() {
     }
 }
 
-Session::Session(int fd, IOThread *pthread) {
+Session::Session(int fd, IOThread *pthread) : _fd(fd), p_ownerthread(pthread) {
     _head_buf = std::make_shared<HeadBuf>(HEAD_LEN);
     _data_buf = nullptr;
     _recv_stage = NO_RECV;
