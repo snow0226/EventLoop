@@ -11,7 +11,7 @@ HeadBuf::HeadBuf(size_t head_len) :_head_len(head_len), _offset(0) {
 }
 
 HeadBuf::~HeadBuf() {
-    if (!_buf) {
+    if (_buf) {
         std::free(_buf);
         _buf = nullptr;
     }
@@ -20,7 +20,7 @@ HeadBuf::~HeadBuf() {
 // 接收用构造函数 从socket中收到包头时就已经知道消息体的长度
 DataBuf::DataBuf(uint16_t type, size_t data_len) :_type(type), _data_len(data_len), _offset(0) { 
     _buf = static_cast<char*>(std::malloc(data_len));
-    if (_buf) {
+    if (!_buf) {
         perror("malloc data buf failed!\n");
         exit(EXIT_FAILURE);
     }
