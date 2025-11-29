@@ -11,7 +11,7 @@ HeadBuf::HeadBuf(size_t head_len) :_head_len(head_len), _offset(0) {
 }
 
 HeadBuf::~HeadBuf() {
-    if (_buf) {
+    if (!_buf) {
         std::free(_buf);
         _buf = nullptr;
     }
