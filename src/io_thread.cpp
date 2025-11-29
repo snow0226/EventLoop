@@ -105,6 +105,7 @@ void IOThread::loop() {
                 perror("realloc event_addr");
             }
             else {
+                free(_event_addr);
                 _event_addr = new_addr;
                 _event_count = new_count;
                 std::cout << "expanded event_addr to " << _event_count << " size";
