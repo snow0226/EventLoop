@@ -116,7 +116,7 @@ void IOThread::loop() {
             int fd = _event_addr[i].data.fd;
             uint32_t evs = _event_addr[i].events;
             // 表示socket出错或者对端关闭
-            if (evs & (EPOLLERR || EPOLLHUP)) {
+            if (evs & (EPOLLERR | EPOLLHUP)) {
                 int err = 0, errlen = sizeof(err);
                 getsockopt(fd, SOL_SOCKET, SO_ERROR, &err, (socklen_t*)&errlen);
                 fprintf(stderr, "fd=%d error: %s\n", fd, strerror(err));
