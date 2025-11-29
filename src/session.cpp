@@ -29,7 +29,7 @@ DataBuf::DataBuf(uint16_t type, size_t data_len) :_type(type), _data_len(data_le
 // 发送用构造函数 需要自己将消息体与包头拼接成一个完整的数据包
 DataBuf::DataBuf(uint16_t type, std::string data, size_t data_len) :_type(type), _data_len(data_len + HEAD_LEN), _offset(0) {
     _buf = static_cast<char*>(std::malloc(_data_len));
-    if (_buf) {
+    if (!_buf) {
         perror("malloc data buf failed!\n");
         exit(EXIT_FAILURE);
     }
