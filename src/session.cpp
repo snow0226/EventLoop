@@ -4,7 +4,7 @@
 
 HeadBuf::HeadBuf(size_t head_len) :_head_len(head_len), _offset(0) {
     _buf = (char*)malloc(sizeof(char) * head_len);
-    if (_buf) {
+    if (!_buf) {
         perror("malloc head buf failed!\n");
         exit(EXIT_FAILURE);
     }
