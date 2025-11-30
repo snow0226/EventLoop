@@ -75,7 +75,7 @@ private:
     std::thread _thread;                                            // std::thread对象
     std::atomic<bool> _stop;                                        // 线程停止标志
     int _index;                                                     // IOThread索引
-    std::unordered_map<int, std::shared_ptr<Session>> _sessions;     // fd --> session 映射
+    std::unordered_map<int, std::shared_ptr<Session>> _sessions;    // fd --> session 映射
     bool _expanded_once;                                            // 是否扩展过epoll_event数组
 };
 
